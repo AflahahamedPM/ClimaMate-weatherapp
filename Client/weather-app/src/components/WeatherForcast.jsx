@@ -18,9 +18,6 @@ const WEEK_DAYS = [
   "Saturday",
   "Sunday",
 ];
-const API_KEY = "ee50694c29c042797e8c6c2efe81b451"
-const api = "https://history.openweathermap.org/data/2.5/history/city?lat={lat}&lon={lon}&type=hour&start={start}&end={end}&appid={API key}"
-const type = 1
 const WeatherForcast = () => {
   const location = useLocation();
   const forcastArray = location.state.forcast;
