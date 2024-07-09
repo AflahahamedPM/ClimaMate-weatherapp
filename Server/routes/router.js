@@ -15,25 +15,25 @@ const validateRequest = (handler) => async (req, res) => {
   await handler(req, res);
 };
 
-router
+router //this route is used to register the user, the logic behind this is if there is a user with unique email will be added  
 .route("/register")
-.post(signupValidator, validateRequest(userSignup));
+.post(signupValidator, validateRequest(userSignup)); 
 
-router
+router // this route will if the email and password of the user inputted is present in the DB if exist the user is provided with a JWT token 
 .route("/login")
 .post(loginValidator, validateRequest(userLogin))
 
-router
+router // This route will gives the current weather data 
 .route("/weather/current")
 .get(currentWeather)
 
-router
+router // This route will gives the weather forcast for upcoming seven days
 .route("/weather/forcast")
 .get(forcast)
 
 router
 .route("/favourites")
-.post(verifyToken, addCity)
-.get(verifyToken, getFavCities)
+.post(verifyToken, addCity)  // This route will perform adding the city in the favourite list if not present already in the db
+.get(verifyToken, getFavCities) // This route will shows if any favourite city is present on user specific
 
 export default router;
